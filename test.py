@@ -3,4 +3,6 @@ import jinja2
 templateLoader = jinja2.FileSystemLoader(searchpath=".")
 env = Environment(loader=templateLoader)
 t = env.get_template('test.c')
-print t.render(numberofpointers=10, numberofiterations=12)
+
+with open('gencodes.c','w') as f:
+    f.write(t.render(numberofpointers=10, numberofiterations=12))
